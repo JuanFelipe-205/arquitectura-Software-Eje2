@@ -2,7 +2,7 @@
 
 - **Universidad**: Areandina. 
 - **Materia**: Arquitectura de software - EJE 2 
-- **Integrantes**: Juan Felipe Vargas Cortes 
+- **Integrantes**: Juan Felipe Vargas Cortes, Juan Jose Ruiz Garcia
 - **Fecha**: 19/02/2026
 
 *<><><><><><><><><><><><><><><><><><><><><><><><><>*
