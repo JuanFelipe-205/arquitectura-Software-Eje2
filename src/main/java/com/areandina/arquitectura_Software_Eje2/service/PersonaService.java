@@ -13,7 +13,6 @@ public class PersonaService {
     private PersonaDAO personaDAO;
 
     public PersonaDTO buscarPorId(Long userId){
-
         try {
             Persona persona = personaDAO.buscarPersonaManual(userId);
             PersonaDTO dto = new PersonaDTO();

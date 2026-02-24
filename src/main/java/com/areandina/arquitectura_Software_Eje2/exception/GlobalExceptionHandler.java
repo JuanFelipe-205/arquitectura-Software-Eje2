@@ -1,6 +1,6 @@
 package com.areandina.arquitectura_Software_Eje2.exception;
 
-import com.areandina.arquitectura_Software_Eje2.dto.ErrorResponseDTO;
+import com.areandina.arquitectura_Software_Eje2.dto.ResponseDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorResponseDTO> handleAllExceptions(Exception ex) {
+    public ResponseEntity<ResponseDTO> handleAllExceptions(Exception ex) {
 
-        ErrorResponseDTO error = ErrorResponseDTO.builder()
+        ResponseDTO error = ResponseDTO.builder()
                 .status("ERROR")
                 .errorDescription(ex.getMessage())
                 .build();

@@ -30,3 +30,8 @@ El presente proyecto cuenta con una arquitectura en Capas lo que facilita la com
 - Herramientas: IntelliJ IDEA o otros, Postman, Git.
 - Plugins: Loombok
 
+*<><><><><><><><><><><><><><><><><><><><><><><><><>*
+# Pruebas locales:
+En caso de quere realizar la prueba de los servicio implementados, se adjunta un enlace de una carpeta drive la cual contiene las sentencias SQL para crear la Base de datos y la coleccion POSTMAN para ejecutra las peticionaes.
+- Link: https://drive.google.com/file/d/1xOV51fM2cy57xsdR5dQymgSPmHtVoK6f/view?usp=drive_link
+

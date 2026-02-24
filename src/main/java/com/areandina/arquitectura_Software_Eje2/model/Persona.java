@@ -2,14 +2,9 @@ package com.areandina.arquitectura_Software_Eje2.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
-
-@Entity
-@Getter
-@Setter
 @Data
+@Entity
 @Table(name = "PERSONAS")
 public class Persona {
 

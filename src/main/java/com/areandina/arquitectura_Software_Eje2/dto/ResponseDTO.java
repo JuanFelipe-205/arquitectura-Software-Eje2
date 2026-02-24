@@ -5,9 +5,13 @@ import lombok.Data;
 
 @Data
 @Builder
-public class ErrorResponseDTO {
+public class ResponseDTO {
 
     private String status;
     private String errorDescription;
 
+    public ResponseDTO(String status, String errorDescription) {
+        this.status = status;
+        this.errorDescription = errorDescription;
+    }
 }
