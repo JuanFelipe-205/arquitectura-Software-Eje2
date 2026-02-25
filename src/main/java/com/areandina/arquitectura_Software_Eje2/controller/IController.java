@@ -6,7 +6,7 @@ import com.areandina.arquitectura_Software_Eje2.dto.UsuarioDTO;
 import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/api/areandina")
-public interface IPersonaController {
+public interface IController {
 
     @GetMapping("/{userId}")
     PersonaDTO obtenerPersona(@PathVariable Long userId);

@@ -1,6 +1,6 @@
 package com.areandina.arquitectura_Software_Eje2.controller.impl;
 
-import com.areandina.arquitectura_Software_Eje2.controller.IPersonaController;
+import com.areandina.arquitectura_Software_Eje2.controller.IController;
 import com.areandina.arquitectura_Software_Eje2.dto.PersonaDTO;
 import com.areandina.arquitectura_Software_Eje2.dto.ResponseDTO;
 import com.areandina.arquitectura_Software_Eje2.dto.UsuarioDTO;
@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/areandina")
-public class PersonaControllerImpl implements IPersonaController {
+public class ControllerImpl implements IController {
 
     private final PersonaService personaService;
     private final UsuarioService usuarioService;
 
-    public PersonaControllerImpl(PersonaService personaService, UsuarioService usuarioService) {
+    public ControllerImpl(PersonaService personaService, UsuarioService usuarioService) {
         this.personaService = personaService;
         this.usuarioService = usuarioService;
     }
