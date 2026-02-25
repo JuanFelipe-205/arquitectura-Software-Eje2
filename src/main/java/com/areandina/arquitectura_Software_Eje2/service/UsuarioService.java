@@ -5,8 +5,10 @@ import com.areandina.arquitectura_Software_Eje2.dto.ResponseDTO;
 import com.areandina.arquitectura_Software_Eje2.dto.UsuarioDTO;
 import com.areandina.arquitectura_Software_Eje2.model.Usuarios;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Slf4j
@@ -41,7 +43,7 @@ public class UsuarioService {
         }
     }
 
-    public ResponseDTO updateUsuarioById(Long id, UsuarioDTO usuarioDTO){
+    public ResponseDTO updateUsuarioById(Long id, UsuarioDTO usuarioDTO) {
 
         Usuarios entity = new Usuarios();
         entity.setId(id);
@@ -53,12 +55,37 @@ public class UsuarioService {
 
         int statusUpdate = usuariosDAO.updateUserById(entity);
 
-        if (statusUpdate == 1){
+        if (statusUpdate == 1) {
             return new ResponseDTO("OK", "Proceso finalizado con exito !");
 
-        }else {
+        } else {
             return new ResponseDTO("ERROR", "No existe el usuario" + id + " en la BD");
 
+        }
+    }
+
+    @Transactional
+    public ResponseDTO crearUsuario(UsuarioDTO usuarioDTO) {
+
+        if (usuariosDAO.existeCorreo(usuarioDTO.getCorreo())) {
+            return new ResponseDTO("ERROR!", "El correo ya está registrado");
+        }
+
+        Usuarios entity = new Usuarios();
+        entity.setNombre(usuarioDTO.getNombre());
+        entity.setApellido(usuarioDTO.getApellido());
+        entity.setCorreo(usuarioDTO.getCorreo());
+        entity.setTelefono(usuarioDTO.getTelefono());
+        entity.setFecha_nacimiento(usuarioDTO.getFecha_nacimiento());
+        entity.setTipo_usuario(usuarioDTO.getTipo_usuario());
+        entity.setActivo(usuarioDTO.getActivo());
+
+        int statusInsert = usuariosDAO.insertUsuario(entity);
+
+        if (statusInsert == 1) {
+            return new ResponseDTO("OK", "Usuario creado correctamente");
+        } else {
+            return new ResponseDTO("ERROR", "No se pudo crear el usuario, intente nuevamente");
         }
     }
 }

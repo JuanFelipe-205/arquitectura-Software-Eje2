@@ -36,4 +36,9 @@ public class ControllerImpl implements IController {
         return usuarioService.updateUsuarioById(id, usuarioDTO);
     }
 
+    @Override
+    public ResponseDTO crearUsuario(UsuarioDTO usuarioDTO) {
+        return usuarioService.crearUsuario(usuarioDTO);
+    }
 }
+

@@ -41,4 +41,29 @@ public class UsuariosDAO {
         return query.executeUpdate();
     }
 
+    public int insertUsuario(Usuarios entity) {
+
+        String sql = env.getProperty("sql.usuario.insert");
+
+        Query query = entityManager.createNativeQuery(sql);
+
+        query.setParameter("nombre", entity.getNombre());
+        query.setParameter("apellido", entity.getApellido());
+        query.setParameter("correo", entity.getCorreo());
+        query.setParameter("telefono", entity.getTelefono());
+        query.setParameter("fecha_nacimiento", entity.getFecha_nacimiento());
+        query.setParameter("tipo_usuario", entity.getTipo_usuario());
+        query.setParameter("activo", entity.getActivo());
+
+        return query.executeUpdate();
+    }
+    public boolean existeCorreo(String correo) {
+        String jpql = "SELECT COUNT(u) FROM Usuarios u WHERE u.correo = :correo";
+        Long count = entityManager.createQuery(jpql, Long.class)
+                .setParameter("correo", correo)
+                .getSingleResult();
+
+        return count > 0;
+    }
+
 }

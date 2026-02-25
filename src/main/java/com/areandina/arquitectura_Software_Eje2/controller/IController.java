@@ -17,4 +17,6 @@ public interface IController {
     @PutMapping("usuario/{id}")
     ResponseDTO updateUsuarioById(@PathVariable Long id, @RequestBody UsuarioDTO usuarioDTO);
 
+    @PostMapping("usuario")
+    ResponseDTO crearUsuario(@RequestBody UsuarioDTO usuarioDTO);
 }
